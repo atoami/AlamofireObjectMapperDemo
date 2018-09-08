@@ -6,5 +6,8 @@ target 'AlamofireObjectMapperKit' do
   use_frameworks!
 
   # Pods for AlamofireObjectMapperKit
-
+  pod 'SwiftyJSON'
+  pod 'PromiseKit/Alamofire', '~> 4.0'
+  pod 'ObjectMapper'
+  
 end

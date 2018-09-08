@@ -6,8 +6,84 @@
 //  Copyright © 2018 AXNET. All rights reserved.
 //
 
-import UIKit
+import Alamofire
+import PromiseKit
+import SwiftyJSON
+import ObjectMapper
 
-class GenericService: NSObject {
-
+class GenericService {
+    
+    /**
+     Headers to be attached to api calls.
+     Include access token if user was authenticated.
+     */
+    var headers: HTTPHeaders {
+        get {
+            var headers: HTTPHeaders = ["Content-Type": "application/json"]
+            // if let token = AuthManager.shared.getAccessToken() {
+            //    headers["Authorization"] = "Bearer " + token
+            // }
+            return headers
+        }
+    }
+    
+    /**
+     Send api request
+     Use class templates inherited by ObjectMapper to parse json responses into Swift objects.
+     It makes code more robust and modular.
+     - SeeAlso: ObjectMapper(https://github.com/Hearst-DD/ObjectMapper)
+     */
+    func sendRequest<T: Mappable>(_ url: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, encoding: ParameterEncoding = JSONEncoding.default, headers: HTTPHeaders? = nil, responseObject: T.Type) -> Promise<T> {
+        
+        debugPrint("path = \(url)")
+        
+        // Show network indicator on status bar
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
+        return Promise { resolve, reject in
+            Alamofire.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
+                .responseJSON() { response in
+                    // Hide network indicator on status bar
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    switch response.result {
+                    case .success(let data):
+                        let json = JSON(data as Any)
+                        debugPrint(json)
+                        let mappableObject = Mapper<T>().map(JSONObject: json.object)
+                        if let resObj = mappableObject {
+                            resolve(resObj)
+                        } else {
+                            reject(self.generateError(code: 0, message: nil))
+                        }
+                    case .failure(let error):
+                        reject(error)
+                    }
+            }
+        }
+    }
+    
+    /**
+     If you need JSON response data, use this method
+     */
+    func sendRequest(_ url: URLConvertible, method: HTTPMethod = .get, parameters: Parameters? = nil, encoding: ParameterEncoding = JSONEncoding.default, headers: HTTPHeaders? = nil) -> Promise<Any> {
+        
+        return Promise { resolve, reject in
+            Alamofire.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
+                .responseJSON() { response in
+                    switch response.result {
+                    case .success(let data):
+                        resolve(data as Any)
+                    case .failure(_):
+                        reject(self.generateError(code: 0, message: nil))
+                    }
+            }
+        }
+    }
+    
+    func generateError(code: Int, message: String?) -> NSError {
+        let errorTag = "Error"
+        let errorMsg: String = message != nil ? message! : "Try again?"
+        return NSError(domain: "", code: code, userInfo: ["__type": errorTag, "message": errorMsg])
+    }
 }
+
