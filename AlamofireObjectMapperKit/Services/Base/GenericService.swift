@@ -11,6 +11,14 @@ import PromiseKit
 import SwiftyJSON
 import ObjectMapper
 
+class Servers {
+    static let Github = "https://api.github.com"
+}
+
+enum ErrorMesssages: String {
+    case NotFound = "Not Found"
+}
+
 class GenericService {
     
     /**
@@ -47,13 +55,19 @@ class GenericService {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
                     switch response.result {
                     case .success(let data):
-                        let json = JSON(data as Any)
+                        var json = JSON()
+                        if let jsonArray = JSON(data as Any).array {
+                            json["list"].arrayObject = jsonArray
+                        } else {
+                            json = JSON(data as Any)
+                        }
                         debugPrint(json)
                         let mappableObject = Mapper<T>().map(JSONObject: json.object)
-                        if let resObj = mappableObject {
-                            resolve(resObj)
+                        let genericResObj = mappableObject as? GenericResponse
+                        if genericResObj?.message == ErrorMesssages.NotFound {
+                            reject(self.generateError(code: 0, message: genericResObj?.message?.rawValue))
                         } else {
-                            reject(self.generateError(code: 0, message: nil))
+                            resolve(mappableObject!)
                         }
                     case .failure(let error):
                         reject(error)
