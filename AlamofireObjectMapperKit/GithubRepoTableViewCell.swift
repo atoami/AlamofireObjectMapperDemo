@@ -33,7 +33,6 @@ class GithubRepoTableViewCell: UITableViewCell {
     func setData(_ repo: GithubRepo) {
         nameLabel.text = repo.name
         languageLabel.text = repo.language
-        starLabel.text = "\(repo.stargazersCount)"
         starLabel.setFAText(prefixText: "", icon: .FAStar, postfixText: " \(repo.stargazersCount)", size: 14)
         forkLabel.setFAText(prefixText: "", icon: .FACodeFork, postfixText: " \(repo.forks)", size: 14)
     }
