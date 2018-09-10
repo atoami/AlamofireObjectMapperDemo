@@ -11,7 +11,7 @@ import PromiseKit
 import SwiftyJSON
 import ObjectMapper
 
-class Servers {
+final class Servers {
     static let Github = "https://api.github.com"
 }
 
