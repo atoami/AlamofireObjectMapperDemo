@@ -17,6 +17,7 @@
 		4F655E6621466E4800FE10C7 /* GithubRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F655E6521466E4800FE10C7 /* GithubRepo.swift */; };
 		4F655E68214670EC00FE10C7 /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F655E67214670EC00FE10C7 /* GenericResponse.swift */; };
 		4F655E6D214671B000FE10C7 /* GithubService+GetRepos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F655E6C214671B000FE10C7 /* GithubService+GetRepos.swift */; };
+		4F655E6F214675FD00FE10C7 /* GithubRepoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F655E6E214675FD00FE10C7 /* GithubRepoTableViewCell.swift */; };
 		9EC31F7BD2F4BEB90DBD7E10 /* Pods_AlamofireObjectMapperKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97529EF7800F8C1FB9397D6B /* Pods_AlamofireObjectMapperKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		4F655E6521466E4800FE10C7 /* GithubRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepo.swift; sourceTree = "<group>"; };
 		4F655E67214670EC00FE10C7 /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
 		4F655E6C214671B000FE10C7 /* GithubService+GetRepos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GithubService+GetRepos.swift"; sourceTree = "<group>"; };
+		4F655E6E214675FD00FE10C7 /* GithubRepoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepoTableViewCell.swift; sourceTree = "<group>"; };
 		97529EF7800F8C1FB9397D6B /* Pods_AlamofireObjectMapperKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlamofireObjectMapperKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -75,6 +77,7 @@
 				4F655E5F21441F8900FE10C7 /* Services */,
 				4F655E4D21441ED300FE10C7 /* AppDelegate.swift */,
 				4F655E4F21441ED300FE10C7 /* ViewController.swift */,
+				4F655E6E214675FD00FE10C7 /* GithubRepoTableViewCell.swift */,
 				4F655E5121441ED300FE10C7 /* Main.storyboard */,
 				4F655E5421441EDD00FE10C7 /* Assets.xcassets */,
 				4F655E5621441EDD00FE10C7 /* LaunchScreen.storyboard */,
@@ -230,6 +233,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AlamofireObjectMapperKit/Pods-AlamofireObjectMapperKit-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Font-Awesome-Swift/Font_Awesome_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -237,6 +241,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Font_Awesome_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -257,6 +262,7 @@
 				4F655E5021441ED300FE10C7 /* ViewController.swift in Sources */,
 				4F655E4E21441ED300FE10C7 /* AppDelegate.swift in Sources */,
 				4F655E6621466E4800FE10C7 /* GithubRepo.swift in Sources */,
+				4F655E6F214675FD00FE10C7 /* GithubRepoTableViewCell.swift in Sources */,
 				4F655E6D214671B000FE10C7 /* GithubService+GetRepos.swift in Sources */,
 				4F655E6321442CA800FE10C7 /* GithubService.swift in Sources */,
 				4F655E6121441F9D00FE10C7 /* GenericService.swift in Sources */,
@@ -407,10 +413,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S5R9P66N72;
 				INFOPLIST_FILE = AlamofireObjectMapperKit/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ax.net.AlamofireObjectMapperKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -426,10 +429,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S5R9P66N72;
 				INFOPLIST_FILE = AlamofireObjectMapperKit/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ax.net.AlamofireObjectMapperKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

@@ -9,5 +9,6 @@ target 'AlamofireObjectMapperKit' do
   pod 'SwiftyJSON'
   pod 'PromiseKit/Alamofire', '~> 4.0'
   pod 'ObjectMapper'
+  pod 'Font-Awesome-Swift', '~> 1.7.2'
   
 end
