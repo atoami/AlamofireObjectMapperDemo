@@ -18,6 +18,7 @@
 		4F655E68214670EC00FE10C7 /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F655E67214670EC00FE10C7 /* GenericResponse.swift */; };
 		4F655E6D214671B000FE10C7 /* GithubService+GetRepos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F655E6C214671B000FE10C7 /* GithubService+GetRepos.swift */; };
 		4F655E6F214675FD00FE10C7 /* GithubRepoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F655E6E214675FD00FE10C7 /* GithubRepoTableViewCell.swift */; };
+		4F918DE7214EBFF000536A34 /* GithubService+GetRepoDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F918DE6214EBFF000536A34 /* GithubService+GetRepoDetails.swift */; };
 		9EC31F7BD2F4BEB90DBD7E10 /* Pods_AlamofireObjectMapperKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97529EF7800F8C1FB9397D6B /* Pods_AlamofireObjectMapperKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		4F655E67214670EC00FE10C7 /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
 		4F655E6C214671B000FE10C7 /* GithubService+GetRepos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GithubService+GetRepos.swift"; sourceTree = "<group>"; };
 		4F655E6E214675FD00FE10C7 /* GithubRepoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepoTableViewCell.swift; sourceTree = "<group>"; };
+		4F918DE6214EBFF000536A34 /* GithubService+GetRepoDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GithubService+GetRepoDetails.swift"; sourceTree = "<group>"; };
 		97529EF7800F8C1FB9397D6B /* Pods_AlamofireObjectMapperKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlamofireObjectMapperKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 			children = (
 				4F655E6221442CA800FE10C7 /* GithubService.swift */,
 				4F655E6C214671B000FE10C7 /* GithubService+GetRepos.swift */,
+				4F918DE6214EBFF000536A34 /* GithubService+GetRepoDetails.swift */,
 			);
 			path = GithubService;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F655E68214670EC00FE10C7 /* GenericResponse.swift in Sources */,
+				4F918DE7214EBFF000536A34 /* GithubService+GetRepoDetails.swift in Sources */,
 				4F655E5021441ED300FE10C7 /* ViewController.swift in Sources */,
 				4F655E4E21441ED300FE10C7 /* AppDelegate.swift in Sources */,
 				4F655E6621466E4800FE10C7 /* GithubRepo.swift in Sources */,
@@ -413,7 +417,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S5R9P66N72;
 				INFOPLIST_FILE = AlamofireObjectMapperKit/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ax.net.AlamofireObjectMapperKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -429,7 +436,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S5R9P66N72;
 				INFOPLIST_FILE = AlamofireObjectMapperKit/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ax.net.AlamofireObjectMapperKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
