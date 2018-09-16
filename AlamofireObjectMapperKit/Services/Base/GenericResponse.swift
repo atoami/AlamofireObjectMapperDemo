@@ -2,7 +2,7 @@
 //  GenericResponse.swift
 //  AlamofireObjectMapperKit
 //
-//  Created by David Bala on 10/09/2018.
+//  Created by BBDroid on 10/09/2018.
 //  Copyright © 2018 AXNET. All rights reserved.
 //
 
